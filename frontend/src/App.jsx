@@ -21,6 +21,7 @@ function App() {
   const [isloggedIn,setIsloggedIn] = useState(
     !!localStorage.getItem('auth-token') // Check login status on load
   )
+  
 
   return (
       <div>
@@ -28,7 +29,7 @@ function App() {
            <Navbar style={{position:"fixed"}}/>
            <Routes>
               <Route path='/' element={<Shop/>}/>
-              <Route path="/new-collections" element={NewCollections} />
+              <Route path='/new-collections' element={NewCollections} />
               <Route path='/mens' element={<Shopcategory banner={men_banner} category="men"/>}/>
               <Route path='/womens' element={<Shopcategory banner={women_banner} category="women"/>}/>
               <Route path='/kids' element={<Shopcategory banner={kid_banner} category="kid"/>}/>
