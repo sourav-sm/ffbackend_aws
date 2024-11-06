@@ -11,8 +11,7 @@ require('dotenv').config();
 // const { error, log } = require("console");
 
 //payment
-const apiKey="sk_test_51OpVHpSIyGZ3BZDjIlASplaGias67Ha2kFvLUs4Qi6zuVF7Glsc04ZppOlzoIUaY7d0QVdWiWVcliMTjQj9i9pxF00YaHPBYqe"
-//const apiKey=process.env.api_key
+const apiKey=process.env.apikey
 const stripe=require ("stripe")({apiKey})
 const { v4: uuidv4 } = require("uuid");
 require('dotenv').config();
@@ -282,7 +281,7 @@ app.post('/getcart',fetchUser,async(req,res)=>{
 app.post('/payment',(req,res)=>{
     const{product,token}=req.body;
     console.log("products",product);
-    console.log("price",product.price);
+    console.log("price",product.new_price);
     const idempontencykey=uuidv4();
 
     return stripe.customers.create({
