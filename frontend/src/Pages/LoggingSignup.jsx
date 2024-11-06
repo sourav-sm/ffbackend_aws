@@ -101,8 +101,8 @@ const LogingSignup=()=>{
     const login = async () =>{
         console.log("login function executed",formData);
         let responseData;
-        //await fetch('http://localhost:4000/login',{
-      await fetch('https://fftrail.onrender.com/login',{
+        await fetch('http://localhost:4000/login',{
+      //await fetch('https://fftrail.onrender.com/login',{
             method:'POST',
             headers:{
                 Accept:'application/form-data',
@@ -122,8 +122,8 @@ const LogingSignup=()=>{
     const signup = async () =>{
         console.log("signup function executed",formData);
         let responseData;
-         //await fetch('http://localhost:4000/signup',{
-       await fetch('https://fftrail.onrender.com/signup',{
+         await fetch('http://localhost:4000/signup',{
+       //await fetch('https://fftrail.onrender.com/signup',{
             method:'POST',
             headers:{
                 Accept:'application/form-data',

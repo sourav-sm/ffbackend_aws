@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { Children, useState } from 'react'
 import './App.css'
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import {BrowserRouter,Routes,Route, Navigate} from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar'
 import Shop from './Pages/Shop';
 import Shopcategory from './Pages/ShopCategory';
@@ -17,6 +17,10 @@ import Cancel from './Pages/Cancel';
 
 function App() {
   // const [count, setCount] = useState(0)
+  //for new addtocart feature
+  const [isloggedIn,setIsloggedIn] = useState(
+    !!localStorage.getItem('auth-token') // Check login status on load
+  )
 
   return (
       <div>
@@ -31,7 +35,11 @@ function App() {
               <Route path='/product'element={<Product/>}>
                   <Route path=':productId' element={<Product/>}/>
                 </Route> 
-              <Route path='/cart' element={<Cart/>}/>
+              <Route path='/cart' element={
+                <ProtectedRoute isloggedIn={isloggedIn}>
+                    <Cart/>
+                </ProtectedRoute>
+                }/>
               <Route path='/login' element={<LoggingSignup/>}/>
               <Route path='/success' element={<Success/>}/>
               <Route path='/cancel' element={<Cancel/>}/>
@@ -42,4 +50,11 @@ function App() {
   )
 }
 
-export default App
+function ProtectedRoute({isloggedIn,children}){
+  if(!isloggedIn){
+    return <Navigate to="/login" replace/>
+  }
+  return children;
+}
+
+export default App;

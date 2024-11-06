@@ -197,7 +197,7 @@ const CartItems= ()=>{
                          shippingAddress
                          billingAddress
                          >
-                   <button>PROCEED TO PAYMENT</button>
+                   <button onClick={()=>{}}>PROCEED TO PAYMENT</button>
                  </StripeCheckout>
                          {/* <button>PROCEED TO PAYMENT</button> */}
             </div>
@@ -212,4 +212,4 @@ const CartItems= ()=>{
         </div>
     )
 }
-export default CartItems
+export default CartItems;

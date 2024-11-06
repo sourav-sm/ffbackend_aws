@@ -38,8 +38,8 @@ const Popular = ()=>{
    const [popularProducts,setPopularProducts]=useState([]);
 
    useEffect(()=>{
-      //fetch('http://localhost:4000/propularinwomen')
-      fetch('https://fftrail.onrender.com/propularinwomen')
+      fetch('http://localhost:4000/propularinwomen')
+      //fetch('https://fftrail.onrender.com/propularinwomen')
       .then((response)=>response.json())
       .then((data)=>setPopularProducts(data));
    },[]);
